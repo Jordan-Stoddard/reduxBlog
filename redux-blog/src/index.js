@@ -10,10 +10,12 @@ import thunk from 'redux-thunk' // import thunk from the redux-thunk depenency
 // The gotcha is that the inner function must return an action object having a type and optionally a payload.
 
 import App from './components/App'
-import reducers from './reducers'
-                                    // second argument to createStore is optionally the applyMiddleWare function, add the middlewares you want to apply as the arguments of applyMiddleware
-const store = createStore(reducers, applyMiddleware(thunk))
+import reducers from './reducers' // Reducers are the instances of state that we hold inside the redux store.
 
+
+    // Here we pass in the reducer's state into our store.  // second argument to createStore is optionally the applyMiddleWare function, add the middlewares you want to apply as the arguments of applyMiddleware
+const store = createStore(reducers, applyMiddleware(thunk))
+                        
 ReactDOM.render(<Provider store={store}>
     <App />
 </Provider>,
